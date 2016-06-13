@@ -4,7 +4,7 @@ function update(event, player, msg, Type, lang)
     
     if player_type == 3 and msg == "%lua_update" then
     
-        os.execute('C:\\Build_eluna\\bin\\Release\\lua_scripts')
+        os.execute('C:\\Build_eluna\\bin\\Release\\lua_scripts\\update_lua.bat')
     
     end
 
