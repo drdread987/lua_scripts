@@ -1,7 +1,7 @@
 local npcID = 15271
 local aggro_spell = 11922
 
-function OnEnterCombat (event, creature, target}
+function OnEnterCombat (event, creature, target)
 
     creature:CastSpell(target, aggro_spell, false)
     
