@@ -16,3 +16,5 @@ end
 
 
 RegisterCreatureEvent(npcID, 1, OnEnterCombat)
+
+-- For Testing
