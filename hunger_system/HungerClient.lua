@@ -23,10 +23,13 @@ frame:SetMovable(true)
 frame:EnableMouse(true)
 frame:SetBackdrop({
             bgFile = "Interface/DialogFrame/UI-DialogBox-Background-Dark",
-            tile = true,
+            tile = true
 			})  
 frame:SetScript("OnDragStart", frame.StartMoving)	
 frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+
+
+
 
 
 AIO.SavePosition(frame)
@@ -45,7 +48,17 @@ second_frame:SetBackdrop({
             tile = true,
             insets = { left = 1, right = 1, top = 1, bottom = 1 }
 			})  
-second_frame:SetBackdropColor(1,.3,.1,1)
+second_frame:SetBackdropColor(1,0,.7,1)
+local function frame2_Tooltip_OnEnter(self, motion)
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:SetText("Hunger Bar\nEat food to raise it!")
+            GameTooltip:Show()
+       end
+frame:SetScript("OnEnter", frame2_Tooltip_OnEnter)
+local function frame2_Tooltip_OnLeave(self, motion)
+            GameTooltip:Hide()
+        end
+frame:SetScript("OnLeave", frame2_Tooltip_OnLeave)
 
 
 
