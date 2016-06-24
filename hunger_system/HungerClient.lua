@@ -62,24 +62,36 @@ frame:SetScript("OnLeave", frame2_Tooltip_OnLeave)
 
 
 
-function GetHungerPct()
+function GetHungerPct(player)
 
+	local level = player:GetLevel()
 	
+	local max_hunger = level * 5 + 100
+	
+	local rough_pct = ((player_hunger_table[player:GetGUIDLow()]) * 100)
+	
+	local percent =  rough_pct - (rough_pct % 1)
+	
+	second_frame:SetSize(percent, 19)
 
 end
 
 
-function MyHandlers.OnLogin(player)
+local function hunger_ticker(event, timer, delay, player)
 
+	local level = player:GetLevel()
+
+	player_hunger_table[player:GetGUIDLow()] = player_hunger_table[player:GetGUIDLow()] - (level * 5)
 	
+	GetHungerPct(player)
 
 end
-
 
 
 function MyHandlers.ShowFrame(player)
     frame:Show()
 	second_frame:Show()
+	player:RegisterEvent(hunger_ticker, 60000, 0)
 end
 
 
