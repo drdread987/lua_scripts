@@ -69,7 +69,7 @@ function GetHungerPct()
 end
 
 
-function MyHandlers.OnLogin(player, hunger_list)
+function MyHandlers.OnLogin(player)
 
 	
 
